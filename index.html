@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="icon" type="image/jpeg" href="imagenes/logo.jpg" />
+  <link rel="icon" type="image/png" href="imagenes/logosinfondo.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -34,8 +34,8 @@
   <!-- ===== NAVEGACIÓN ===== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#inicio" class="brand">
-        <img src="imagenes/logo.jpg" alt="Logo PSICOMEDIC MS" class="brand__logo" />
+      <a href="#inicio" class="brand" data-nav>
+        <img src="imagenes/logosinfondo.png" alt="Logo PSICOMEDIC MS" class="brand__logo" />
         <span class="brand__text">
           <strong>PSICOMEDIC</strong>
           <small>&amp; Mundo de Servicios</small>
@@ -43,11 +43,26 @@
       </a>
 
       <nav class="nav__menu" id="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#valores">Valores</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio" data-nav>Inicio</a>
+        <a href="#nosotros" data-nav>Nosotros</a>
+
+        <div class="nav__drop">
+          <a href="#servicios" data-nav class="nav__droplabel">
+            Servicios
+            <svg class="nav__caret" viewBox="0 0 20 20" width="12" height="12" fill="currentColor"><path d="M5.5 7.5 10 12l4.5-4.5z"/></svg>
+          </a>
+          <div class="nav__submenu">
+            <a href="#serv-empresarial" data-nav>Psicología Empresarial</a>
+            <a href="#serv-clinica" data-nav>Psicología Clínica</a>
+            <a href="#serv-infantil" data-nav>Psicología Infantil</a>
+            <a href="#serv-ocupacional" data-nav>Medicina Ocupacional</a>
+            <a href="#serv-laboral" data-nav>Bienestar Laboral</a>
+            <a href="#serv-social" data-nav>Bienestar Social</a>
+          </div>
+        </div>
+
+        <a href="#valores" data-nav>Valores</a>
+        <a href="#contacto" data-nav>Contacto</a>
         <a href="https://wa.me/593000000000" class="btn btn--sm btn--wa nav__cta" target="_blank" rel="noopener">Agendar cita</a>
       </nav>
 
@@ -57,313 +72,649 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="inicio">
-    <div class="hero__bg"></div>
-    <div class="container hero__inner">
-      <div class="hero__content" data-reveal>
-        <span class="hero__eyebrow">Salud mental · Bienestar · Salud ocupacional</span>
-        <h1 class="hero__title">Tu salud mental <span>importa</span></h1>
-        <p class="hero__subtitle">
-          Cuidar de ti es el primer paso para dar lo mejor de ti. Acompañamos a personas
-          y empresas con atención profesional, cercana y accesible.
-        </p>
-        <div class="hero__actions">
-          <a href="#servicios" class="btn btn--primary">Ver servicios</a>
-          <a href="https://wa.me/593000000000" class="btn btn--ghost" target="_blank" rel="noopener">
-            Hablar por WhatsApp
+  <main id="main">
+
+    <!-- ============================================================
+         VISTA: INICIO
+         ============================================================ -->
+    <section class="view is-active" id="inicio">
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero__bg"></div>
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <span class="hero__eyebrow">Salud mental · Bienestar · Salud ocupacional</span>
+            <h1 class="hero__title">Tu salud mental <span>importa</span></h1>
+            <p class="hero__subtitle">
+              Cuidar de ti es el primer paso para dar lo mejor de ti. Acompañamos a personas
+              y empresas con atención profesional, cercana y accesible.
+            </p>
+            <div class="hero__actions">
+              <a href="#servicios" class="btn btn--primary" data-nav>Ver servicios</a>
+              <a href="https://wa.me/593000000000" class="btn btn--ghost" target="_blank" rel="noopener">
+                Hablar por WhatsApp
+              </a>
+            </div>
+            <ul class="hero__badges">
+              <li>✔ Atención clínica y empresarial</li>
+              <li>✔ Red de centros en Quito</li>
+              <li>✔ Confidencialidad garantizada</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOSOTROS (resumen) -->
+      <div class="section">
+        <div class="container about">
+          <div class="about__media">
+            <img src="imagenes/imagen1.png" alt="PSICOMEDIC MS · Desde 2019, cuidando la salud mental, el bienestar social y la salud ocupacional" class="about__img" />
+          </div>
+          <div class="about__text">
+            <span class="eyebrow">Quiénes somos</span>
+            <h2>Una empresa saludable comienza por su gente</h2>
+            <p>PSICOMEDIC &amp; Mundo de Servicios brinda soluciones integrales orientadas al bienestar emocional, social y ocupacional, con una red de atención en el norte, sur, centro y valles de Quito.</p>
+            <a href="#nosotros" class="btn btn--primary" data-nav>Conócenos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICIOS (resumen) -->
+      <div class="section section--soft">
+        <div class="container">
+          <div class="section__head">
+            <span class="eyebrow">Nuestros servicios</span>
+            <h2>Soluciones para personas y empresas</h2>
+            <p class="section__lead">Haz clic en una especialidad para ver su información completa.</p>
+          </div>
+          <div class="services">
+            <a class="service" href="#serv-empresarial" data-nav>
+              <img class="service__img" src="imagenes/serv-empresarial.jpg" alt="Psicología Empresarial" loading="lazy" />
+              <h3>Psicología Empresarial</h3>
+              <p>Salud mental para los colaboradores de tu empresa.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+            <a class="service" href="#serv-clinica" data-nav>
+              <img class="service__img" src="imagenes/serv-clinica.jpg" alt="Psicología Clínica" loading="lazy" />
+              <h3>Psicología Clínica</h3>
+              <p>Acompañamiento profesional para adultos.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+            <a class="service" href="#serv-infantil" data-nav>
+              <img class="service__img" src="imagenes/serv-infantil.jpg" alt="Psicología Infantil" loading="lazy" />
+              <h3>Psicología Infantil</h3>
+              <p>Terapia especializada para niños y niñas.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+            <a class="service" href="#serv-ocupacional" data-nav>
+              <img class="service__img" src="imagenes/serv-ocupacional.jpg" alt="Medicina Ocupacional" loading="lazy" />
+              <h3>Medicina Ocupacional</h3>
+              <p>Exámenes y cumplimiento normativo.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+            <a class="service" href="#serv-laboral" data-nav>
+              <img class="service__img" src="imagenes/serv-laboral.jpg" alt="Bienestar Laboral" loading="lazy" />
+              <h3>Bienestar Laboral</h3>
+              <p>Prevención y gestión de riesgos (SSO).</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+            <a class="service" href="#serv-social" data-nav>
+              <img class="service__img" src="imagenes/serv-social.jpg" alt="Bienestar Social" loading="lazy" />
+              <h3>Bienestar Social</h3>
+              <p>Integración, recreación y vínculo familiar.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VALORES (resumen) -->
+      <div class="section">
+        <div class="container">
+          <div class="section__head">
+            <span class="eyebrow">Lo que nos guía</span>
+            <h2>Nuestros valores</h2>
+          </div>
+          <div class="values">
+            <div class="value"><span class="value__icon">💙</span><h4>Empatía</h4><p>Escuchamos, comprendemos y acompañamos con respeto y sensibilidad humana.</p></div>
+            <div class="value"><span class="value__icon">🤝</span><h4>Compromiso</h4><p>Trabajamos con responsabilidad y dedicación para aportar valor.</p></div>
+            <div class="value"><span class="value__icon">🔒</span><h4>Confidencialidad</h4><p>Protegemos la privacidad y la confianza depositada en nosotros.</p></div>
+            <div class="value"><span class="value__icon">🏅</span><h4>Excelencia</h4><p>Buscamos la mejora continua y la atención de alta calidad.</p></div>
+            <div class="value"><span class="value__icon">⚖️</span><h4>Integridad</h4><p>Actuamos con ética, honestidad y transparencia.</p></div>
+            <div class="value"><span class="value__icon">💡</span><h4>Innovación</h4><p>Soluciones modernas para las necesidades actuales.</p></div>
+          </div>
+          <div class="section__cta">
+            <a href="#valores" class="btn btn--primary" data-nav>Ver valores</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta">
+        <div class="container cta__inner">
+          <div>
+            <h2>Da el primer paso por tu bienestar</h2>
+            <p>Agenda una cita o solicita información sobre nuestros programas para empresas y familias.</p>
+          </div>
+          <a href="https://wa.me/593000000000" class="btn btn--wa btn--lg" target="_blank" rel="noopener">
+            Escríbenos por WhatsApp
           </a>
         </div>
-        <ul class="hero__badges">
-          <li>✔ Atención clínica y empresarial</li>
-          <li>✔ Red de centros en Quito</li>
-          <li>✔ Confidencialidad garantizada</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FRANJA DE INDICADORES ===== -->
-  <section class="stats">
-    <div class="container stats__grid">
-      <div class="stat" data-reveal>
-        <span class="stat__num">2019</span>
-        <span class="stat__label">Desde nuestro inicio</span>
-      </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num">6</span>
-        <span class="stat__label">Áreas de servicio</span>
-      </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num">4</span>
-        <span class="stat__label">Zonas de cobertura en Quito</span>
-      </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num">100%</span>
-        <span class="stat__label">Enfoque humano y ético</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== NOSOTROS / HISTORIA ===== -->
-  <section class="section" id="nosotros">
-    <div class="container about">
-      <div class="about__media" data-reveal>
-        <div class="about__card">
-          <span class="about__year">19 de julio de 2019</span>
-          <p>Fecha en que nace PSICOMEDIC &amp; Mundo de Servicios con un propósito claro: el bienestar de las personas.</p>
-        </div>
-      </div>
-      <div class="about__text" data-reveal>
-        <span class="eyebrow">Quiénes somos</span>
-        <h2>Una empresa saludable comienza por su gente</h2>
-        <p>
-          PSICOMEDIC &amp; Mundo de Servicios nace con el propósito de brindar soluciones
-          integrales orientadas al bienestar emocional, social y ocupacional de las personas.
-        </p>
-        <p>
-          Desde nuestros inicios trabajamos junto a empresas comprometidas con el desarrollo
-          humano de sus colaboradores, implementando programas de atención psicológica,
-          acompañamiento social, prevención de riesgos psicosociales y servicios especializados
-          en Seguridad y Salud Ocupacional.
-        </p>
-        <p>
-          Con el tiempo ampliamos nuestro impacto con programas de integración familiar y
-          recreación, como nuestros <strong>Campamentos Vacacionales Empresariales</strong>.
-          Hoy contamos con una red de atención psicológica en el norte, sur, centro y valles de
-          Quito, ofreciendo acceso oportuno y asequible a la salud mental.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MISIÓN Y VISIÓN ===== -->
-  <section class="section section--soft" id="mision">
-    <div class="container">
-      <div class="mv">
-        <article class="mv__card" data-reveal>
-          <div class="mv__icon">🎯</div>
-          <h3>Misión</h3>
-          <p>
-            Brindar soluciones integrales en salud mental, bienestar social y salud ocupacional,
-            contribuyendo al desarrollo humano de las personas y al fortalecimiento de las
-            organizaciones mediante servicios profesionales, accesibles y de alta calidad.
-          </p>
-        </article>
-        <article class="mv__card" data-reveal>
-          <div class="mv__icon">🌟</div>
-          <h3>Visión</h3>
-          <p>
-            Ser la empresa líder en Ecuador en programas de bienestar integral empresarial,
-            reconocida por transformar positivamente la vida de los colaboradores y sus familias
-            a través de servicios innovadores de salud mental, acompañamiento social y desarrollo
-            organizacional.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICIOS ===== -->
-  <section class="section" id="servicios">
-    <div class="container">
-      <div class="section__head" data-reveal>
-        <span class="eyebrow">Nuestros servicios</span>
-        <h2>Soluciones integrales para personas y empresas</h2>
-        <p class="section__lead">
-          Combinamos atención clínica, medicina ocupacional y programas de bienestar para cuidar
-          la salud mental en cada etapa de la vida y del trabajo.
-        </p>
       </div>
 
-      <div class="services">
-        <!-- 1 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🏢</div>
-          <h3>Psicología Empresarial</h3>
-          <p>Atención en psicología clínica en nuestros centros médicos de convenio, para apoyar la salud mental de los colaboradores de tu empresa.</p>
-          <ul class="service__list">
-            <li>Atención clínica individual</li>
-            <li>Atenciones grupales</li>
-            <li>Talleres y charlas</li>
-            <li>Programas de bienestar</li>
-          </ul>
-        </article>
+    </section>
 
-        <!-- 2 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🧠</div>
-          <h3>Psicología Clínica</h3>
-          <p>Tratamiento profesional y acompañamiento para el bienestar emocional de adultos.</p>
-          <ul class="service__list">
-            <li>Ansiedad e insomnio</li>
-            <li>Depresión</li>
-            <li>Problemas del comportamiento</li>
-            <li>Problemas familiares o de pareja</li>
-            <li>Trastorno de personalidad y límite</li>
-            <li>TDAH · TOC</li>
-          </ul>
-        </article>
+    <!-- ============================================================
+         VISTA: NOSOTROS
+         ============================================================ -->
+    <section class="view" id="nosotros">
 
-        <!-- 3 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🧒</div>
-          <h3>Psicología Infantil</h3>
-          <p>Evaluación y terapia especializada para el desarrollo emocional y conductual de niños.</p>
-          <ul class="service__list">
-            <li>Trastorno de ansiedad infantil</li>
-            <li>TDAH</li>
-            <li>Trastorno del espectro autista</li>
-            <li>Depresión infantil</li>
-            <li>Trastorno de conducta</li>
-            <li>Traumas y abuso</li>
-          </ul>
-        </article>
-
-        <!-- 4 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🩺</div>
-          <h3>Medicina Ocupacional</h3>
-          <p>Exámenes y valoraciones para el cumplimiento normativo y la salud de tus trabajadores.</p>
-          <ul class="service__list">
-            <li>Exámenes pre-ocupacionales</li>
-            <li>Exámenes periódicos y de retiro</li>
-            <li>Valoraciones psicológicas ocupacionales</li>
-            <li>Batería de exámenes ocupacionales</li>
-            <li>Informes para cumplimiento normativo</li>
-          </ul>
-        </article>
-
-        <!-- 5 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🛡️</div>
-          <h3>Bienestar Laboral</h3>
-          <p>Prevención y gestión de riesgos para entornos de trabajo más seguros y saludables.</p>
-          <ul class="service__list">
-            <li>Programa preventivo en SSO</li>
-            <li>Planes de emergencia</li>
-            <li>Evaluación de riesgos psicosociales</li>
-            <li>Capacitaciones</li>
-            <li>Implementación de programas de SSO</li>
-          </ul>
-        </article>
-
-        <!-- 6 -->
-        <article class="service" data-reveal>
-          <div class="service__icon">🌿</div>
-          <h3>Bienestar Social</h3>
-          <p>Programas de integración, recreación y fortalecimiento del vínculo familiar y de equipo.</p>
-          <ul class="service__list">
-            <li>Campamentos vacacionales</li>
-            <li>Capacitaciones y talleres grupales</li>
-            <li>Dinámicas grupales</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== VALORES ===== -->
-  <section class="section section--soft" id="valores">
-    <div class="container">
-      <div class="section__head" data-reveal>
-        <span class="eyebrow">Lo que nos guía</span>
-        <h2>Nuestros valores</h2>
-      </div>
-      <div class="values">
-        <div class="value" data-reveal><span class="value__icon">💙</span><h4>Empatía</h4><p>Escuchamos, comprendemos y acompañamos a cada persona con respeto y sensibilidad humana.</p></div>
-        <div class="value" data-reveal><span class="value__icon">🤝</span><h4>Compromiso</h4><p>Trabajamos con responsabilidad y dedicación para generar resultados que aporten valor.</p></div>
-        <div class="value" data-reveal><span class="value__icon">🔒</span><h4>Confidencialidad</h4><p>Protegemos la privacidad y la confianza depositada en nuestros servicios.</p></div>
-        <div class="value" data-reveal><span class="value__icon">🏅</span><h4>Excelencia</h4><p>Buscamos la mejora continua para ofrecer atención profesional de alta calidad.</p></div>
-        <div class="value" data-reveal><span class="value__icon">⚖️</span><h4>Integridad</h4><p>Actuamos con ética, honestidad y transparencia en todas nuestras acciones.</p></div>
-        <div class="value" data-reveal><span class="value__icon">💡</span><h4>Innovación</h4><p>Desarrollamos soluciones modernas que responden a las necesidades actuales.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="cta">
-    <div class="container cta__inner" data-reveal>
-      <div>
-        <h2>Da el primer paso por tu bienestar</h2>
-        <p>Agenda una cita o solicita información sobre nuestros programas para empresas y familias.</p>
-      </div>
-      <a href="https://wa.me/593000000000" class="btn btn--wa btn--lg" target="_blank" rel="noopener">
-        Escríbenos por WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== CONTACTO ===== -->
-  <section class="section" id="contacto">
-    <div class="container contact">
-      <div class="contact__info" data-reveal>
-        <span class="eyebrow">Contacto</span>
-        <h2>Estamos para acompañarte</h2>
-        <p>Cuéntanos qué necesitas y te ayudamos a encontrar el servicio adecuado para ti o para tu empresa.</p>
-        <ul class="contact__list">
-          <li><span>✉️</span> <a href="mailto:info@psicomedic.ec">info@psicomedic.ec</a></li>
-          <li><span>📱</span> <a href="https://wa.me/593000000000" target="_blank" rel="noopener">+593 00 000 0000 (WhatsApp)</a></li>
-          <li><span>📍</span> Norte, Sur, Centro y Valles de Quito, Ecuador</li>
-          <li><span>🕒</span> Lunes a Viernes · 08:00 – 18:00</li>
-        </ul>
-        <div class="contact__socials">
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      <div class="section">
+        <div class="container about">
+          <div class="about__media">
+            <div class="about__card">
+              <span class="about__year">19 de julio de 2019</span>
+              <p>Fecha en que nace PSICOMEDIC &amp; Mundo de Servicios con un propósito claro: el bienestar de las personas.</p>
+            </div>
+          </div>
+          <div class="about__text">
+            <span class="eyebrow">Quiénes somos</span>
+            <h2>Una empresa saludable comienza por su gente</h2>
+            <p>
+              PSICOMEDIC &amp; Mundo de Servicios nace con el propósito de brindar soluciones
+              integrales orientadas al bienestar emocional, social y ocupacional de las personas.
+            </p>
+            <p>
+              Desde nuestros inicios trabajamos junto a empresas comprometidas con el desarrollo
+              humano de sus colaboradores, implementando programas de atención psicológica,
+              acompañamiento social, prevención de riesgos psicosociales y servicios especializados
+              en Seguridad y Salud Ocupacional.
+            </p>
+            <p>
+              Con el tiempo ampliamos nuestro impacto con programas de integración familiar y
+              recreación, como nuestros <strong>Campamentos Vacacionales Empresariales</strong>.
+              Hoy contamos con una red de atención psicológica en el norte, sur, centro y valles de
+              Quito, ofreciendo acceso oportuno y asequible a la salud mental.
+            </p>
+          </div>
         </div>
       </div>
 
-      <form class="contact__form" data-reveal onsubmit="return handleSubmit(event)">
-        <div class="field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+      <div class="section section--soft">
+        <div class="container">
+          <div class="mv">
+            <article class="mv__card">
+              <div class="mv__icon">🎯</div>
+              <h3>Misión</h3>
+              <p>
+                Brindar soluciones integrales en salud mental, bienestar social y salud ocupacional,
+                contribuyendo al desarrollo humano de las personas y al fortalecimiento de las
+                organizaciones mediante servicios profesionales, accesibles y de alta calidad.
+              </p>
+            </article>
+            <article class="mv__card">
+              <div class="mv__icon">🌟</div>
+              <h3>Visión</h3>
+              <p>
+                Ser la empresa líder en Ecuador en programas de bienestar integral empresarial,
+                reconocida por transformar positivamente la vida de los colaboradores y sus familias
+                a través de servicios innovadores de salud mental, acompañamiento social y desarrollo
+                organizacional.
+              </p>
+            </article>
+          </div>
         </div>
-        <div class="field">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         VISTA: SERVICIOS
+         ============================================================ -->
+    <section class="view" id="servicios">
+      <div class="section">
+        <div class="container">
+          <div class="section__head">
+            <span class="eyebrow">Nuestros servicios</span>
+            <h2>Soluciones integrales para personas y empresas</h2>
+            <p class="section__lead">
+              Combinamos atención clínica, medicina ocupacional y programas de bienestar para cuidar
+              la salud mental en cada etapa de la vida y del trabajo.
+            </p>
+          </div>
+
+          <div class="services">
+            <a class="service" href="#serv-empresarial" data-nav>
+              <img class="service__img" src="imagenes/serv-empresarial.jpg" alt="Psicología Empresarial" loading="lazy" />
+              <h3>Psicología Empresarial</h3>
+              <p>Atención en psicología clínica en nuestros centros médicos de convenio, para apoyar la salud mental de los colaboradores de tu empresa.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+
+            <a class="service" href="#serv-clinica" data-nav>
+              <img class="service__img" src="imagenes/serv-clinica.jpg" alt="Psicología Clínica" loading="lazy" />
+              <h3>Psicología Clínica</h3>
+              <p>Tratamiento profesional y acompañamiento para el bienestar emocional de adultos.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+
+            <a class="service" href="#serv-infantil" data-nav>
+              <img class="service__img" src="imagenes/serv-infantil.jpg" alt="Psicología Infantil" loading="lazy" />
+              <h3>Psicología Infantil</h3>
+              <p>Evaluación y terapia especializada para el desarrollo emocional y conductual de niños.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+
+            <a class="service" href="#serv-ocupacional" data-nav>
+              <img class="service__img" src="imagenes/serv-ocupacional.jpg" alt="Medicina Ocupacional" loading="lazy" />
+              <h3>Medicina Ocupacional</h3>
+              <p>Exámenes y valoraciones para el cumplimiento normativo y la salud de tus trabajadores.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+
+            <a class="service" href="#serv-laboral" data-nav>
+              <img class="service__img" src="imagenes/serv-laboral.jpg" alt="Bienestar Laboral" loading="lazy" />
+              <h3>Bienestar Laboral</h3>
+              <p>Prevención y gestión de riesgos para entornos de trabajo más seguros y saludables.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+
+            <a class="service" href="#serv-social" data-nav>
+              <img class="service__img" src="imagenes/serv-social.jpg" alt="Bienestar Social" loading="lazy" />
+              <h3>Bienestar Social</h3>
+              <p>Programas de integración, recreación y fortalecimiento del vínculo familiar y de equipo.</p>
+              <span class="service__more">Ver detalle →</span>
+            </a>
+          </div>
         </div>
-        <div class="field">
-          <label for="servicio">Servicio de interés</label>
-          <select id="servicio" name="servicio">
-            <option>Psicología Empresarial</option>
-            <option>Psicología Clínica</option>
-            <option>Psicología Infantil</option>
-            <option>Medicina Ocupacional</option>
-            <option>Bienestar Laboral</option>
-            <option>Bienestar Social</option>
-          </select>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: PSICOLOGÍA EMPRESARIAL
+         ============================================================ -->
+    <section class="view" id="serv-empresarial">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Psicología Empresarial</span>
+            <h1 class="svc-hero__title">Salud mental para tu equipo</h1>
+            <p class="svc-hero__sub">Atención en psicología clínica en centros médicos de convenio, para apoyar a los colaboradores de tu empresa.</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-empresarial.jpg" alt="Psicología Empresarial" />
         </div>
-        <div class="field">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente cómo podemos ayudarte"></textarea>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Ofrecemos atención en psicología clínica en nuestros centros médicos de convenio, diseñada para apoyar la salud mental de los colaboradores de tu empresa y fortalecer un entorno laboral saludable, productivo y humano.</p>
+            <h3>¿Qué incluye?</h3>
+            <ul class="svc-list">
+              <li>Atención clínica individual</li>
+              <li>Atenciones grupales</li>
+              <li>Talleres y charlas</li>
+              <li>Programas de bienestar</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Colaboradores más saludables y productivos</li>
+              <li>Reducción del ausentismo</li>
+              <li>Mejor clima laboral</li>
+              <li>Acceso oportuno y asequible</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
         </div>
-        <button type="submit" class="btn btn--primary btn--block">Enviar mensaje</button>
-        <p class="form__note" id="formNote"></p>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: PSICOLOGÍA CLÍNICA
+         ============================================================ -->
+    <section class="view" id="serv-clinica">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Psicología Clínica</span>
+            <h1 class="svc-hero__title">Acompañamiento para tu bienestar emocional</h1>
+            <p class="svc-hero__sub">Tratamiento profesional para adultos en un espacio seguro y confidencial.</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-clinica.jpg" alt="Psicología Clínica" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Brindamos tratamiento profesional y acompañamiento terapéutico para adultos, con un enfoque personalizado y basado en la evidencia. Cada proceso se desarrolla en un ambiente de respeto, empatía y absoluta confidencialidad.</p>
+            <h3>Tratamos</h3>
+            <ul class="svc-list svc-list--2col">
+              <li>Ansiedad</li>
+              <li>Insomnio</li>
+              <li>Depresión</li>
+              <li>Problemas del comportamiento</li>
+              <li>Problemas familiares o de pareja</li>
+              <li>Trastorno de personalidad</li>
+              <li>Trastorno límite</li>
+              <li>TDAH</li>
+              <li>TOC</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Atención personalizada</li>
+              <li>Confidencialidad garantizada</li>
+              <li>Profesionales especializados</li>
+              <li>Enfoque humano y cercano</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: PSICOLOGÍA INFANTIL
+         ============================================================ -->
+    <section class="view" id="serv-infantil">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Psicología Infantil</span>
+            <h1 class="svc-hero__title">Cuidado especializado para los más pequeños</h1>
+            <p class="svc-hero__sub">Evaluación y terapia para el desarrollo emocional y conductual de niños y niñas.</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-infantil.jpg" alt="Psicología Infantil" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Realizamos evaluación y terapia especializada para acompañar el desarrollo emocional y conductual de niños y niñas, con un enfoque lúdico, empático y en conjunto con la familia.</p>
+            <h3>Tratamos</h3>
+            <ul class="svc-list svc-list--2col">
+              <li>Trastorno de ansiedad infantil</li>
+              <li>Trastorno de déficit de atención con hiperactividad (TDAH)</li>
+              <li>Trastorno del espectro autista</li>
+              <li>Depresión infantil</li>
+              <li>Trastorno de conducta</li>
+              <li>Traumas y abuso</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Enfoque lúdico y empático</li>
+              <li>Acompañamiento a la familia</li>
+              <li>Detección e intervención temprana</li>
+              <li>Profesionales especializados</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: MEDICINA OCUPACIONAL
+         ============================================================ -->
+    <section class="view" id="serv-ocupacional">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Medicina Ocupacional</span>
+            <h1 class="svc-hero__title">Salud laboral y cumplimiento normativo</h1>
+            <p class="svc-hero__sub">Exámenes y valoraciones médicas para el cuidado de tus trabajadores.</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-ocupacional.jpg" alt="Medicina Ocupacional" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Realizamos exámenes y valoraciones médicas ocupacionales para el cumplimiento normativo y el cuidado de la salud de los trabajadores de tu empresa, con informes profesionales listos para auditoría.</p>
+            <h3>Realizamos</h3>
+            <ul class="svc-list svc-list--2col">
+              <li>Exámenes médicos ocupacionales</li>
+              <li>Exámenes pre ocupacionales</li>
+              <li>Exámenes periódicos</li>
+              <li>Exámenes de retiro</li>
+              <li>Valoraciones psicológicas ocupacionales</li>
+              <li>Batería de exámenes ocupacionales</li>
+              <li>Informes para cumplimiento normativo</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Cumplimiento legal y normativo</li>
+              <li>Prevención de riesgos</li>
+              <li>Informes profesionales</li>
+              <li>Atención ágil y confiable</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: BIENESTAR LABORAL
+         ============================================================ -->
+    <section class="view" id="serv-laboral">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Bienestar Laboral</span>
+            <h1 class="svc-hero__title">Entornos de trabajo seguros y saludables</h1>
+            <p class="svc-hero__sub">Prevención y gestión de riesgos en Seguridad y Salud Ocupacional (SSO).</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-laboral.jpg" alt="Bienestar Laboral" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Acompañamos a las empresas en la prevención y gestión de riesgos laborales, implementando programas de Seguridad y Salud Ocupacional que protegen a los colaboradores y cumplen la normativa vigente.</p>
+            <h3>¿Qué incluye?</h3>
+            <ul class="svc-list">
+              <li>Programa preventivo en SSO</li>
+              <li>Planes de emergencia</li>
+              <li>Evaluación de riesgos psicosociales</li>
+              <li>Capacitaciones</li>
+              <li>Implementación de programas de SSO</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Ambientes de trabajo seguros</li>
+              <li>Cumplimiento en SSO</li>
+              <li>Equipos preparados ante emergencias</li>
+              <li>Menor rotación y ausentismo</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DETALLE DE SERVICIO: BIENESTAR SOCIAL
+         ============================================================ -->
+    <section class="view" id="serv-social">
+      <div class="svc-hero">
+        <div class="container svc-hero__inner">
+          <div class="svc-hero__text">
+            <a href="#servicios" class="svc-back" data-nav>← Volver a servicios</a>
+            <span class="svc-hero__eyebrow">Bienestar Social</span>
+            <h1 class="svc-hero__title">Integración, recreación y vínculo familiar</h1>
+            <p class="svc-hero__sub">Programas que fortalecen el vínculo familiar y de equipo.</p>
+            <a href="https://wa.me/593000000000" class="btn btn--wa" target="_blank" rel="noopener">Agendar cita</a>
+          </div>
+          <img class="svc-hero__img" src="imagenes/serv-social.jpg" alt="Bienestar Social" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="container svc-body">
+          <div class="svc-main">
+            <h2>¿En qué consiste?</h2>
+            <p>Diseñamos programas de integración y recreación, como nuestros Campamentos Vacacionales Empresariales, que fortalecen el vínculo entre las organizaciones, sus colaboradores y sus familias.</p>
+            <h3>¿Qué incluye?</h3>
+            <ul class="svc-list">
+              <li>Campamentos vacacionales</li>
+              <li>Capacitaciones y talleres grupales</li>
+              <li>Dinámicas grupales</li>
+            </ul>
+          </div>
+          <aside class="svc-aside">
+            <h3>Beneficios</h3>
+            <ul class="svc-benefits">
+              <li>Fortalece el vínculo empresa–familia</li>
+              <li>Mejora la convivencia y el trabajo en equipo</li>
+              <li>Experiencias memorables</li>
+              <li>Colaboradores más comprometidos</li>
+            </ul>
+            <div class="svc-ctaBox">
+              <p>¿Listo para empezar?</p>
+              <a href="#contacto" class="btn btn--primary btn--block" data-nav>Contáctanos</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VISTA: VALORES
+         ============================================================ -->
+    <section class="view" id="valores">
+      <div class="section section--soft">
+        <div class="container">
+          <div class="section__head">
+            <span class="eyebrow">Lo que nos guía</span>
+            <h2>Nuestros valores</h2>
+          </div>
+          <div class="values">
+            <div class="value"><span class="value__icon">💙</span><h4>Empatía</h4><p>Escuchamos, comprendemos y acompañamos a cada persona con respeto y sensibilidad humana.</p></div>
+            <div class="value"><span class="value__icon">🤝</span><h4>Compromiso</h4><p>Trabajamos con responsabilidad y dedicación para generar resultados que aporten valor.</p></div>
+            <div class="value"><span class="value__icon">🔒</span><h4>Confidencialidad</h4><p>Protegemos la privacidad y la confianza depositada en nuestros servicios.</p></div>
+            <div class="value"><span class="value__icon">🏅</span><h4>Excelencia</h4><p>Buscamos la mejora continua para ofrecer atención profesional de alta calidad.</p></div>
+            <div class="value"><span class="value__icon">⚖️</span><h4>Integridad</h4><p>Actuamos con ética, honestidad y transparencia en todas nuestras acciones.</p></div>
+            <div class="value"><span class="value__icon">💡</span><h4>Innovación</h4><p>Desarrollamos soluciones modernas que responden a las necesidades actuales.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VISTA: CONTACTO
+         ============================================================ -->
+    <section class="view" id="contacto">
+      <div class="section">
+        <div class="container contact">
+          <div class="contact__info">
+            <span class="eyebrow">Contacto</span>
+            <h2>Estamos para acompañarte</h2>
+            <p>Cuéntanos qué necesitas y te ayudamos a encontrar el servicio adecuado para ti o para tu empresa.</p>
+            <ul class="contact__list">
+              <li><span>✉️</span> <a href="mailto:info@psicomedic.ec">info@psicomedic.ec</a></li>
+              <li><span>📱</span> <a href="https://wa.me/593000000000" target="_blank" rel="noopener">+593 00 000 0000 (WhatsApp)</a></li>
+              <li><span>📍</span> Norte, Sur, Centro y Valles de Quito, Ecuador</li>
+              <li><span>🕒</span> Lunes a Viernes · 08:00 – 18:00</li>
+            </ul>
+            <div class="contact__socials">
+              <a href="#" aria-label="Facebook">Facebook</a>
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+          </div>
+
+          <form class="contact__form" onsubmit="return handleSubmit(event)">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+            </div>
+            <div class="field">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio">
+                <option>Psicología Empresarial</option>
+                <option>Psicología Clínica</option>
+                <option>Psicología Infantil</option>
+                <option>Medicina Ocupacional</option>
+                <option>Bienestar Laboral</option>
+                <option>Bienestar Social</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente cómo podemos ayudarte"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Enviar mensaje</button>
+            <p class="form__note" id="formNote"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="imagenes/logo.jpg" alt="PSICOMEDIC MS" class="footer__logo" />
+        <img src="imagenes/logosinfondo.png" alt="PSICOMEDIC MS" class="footer__logo" />
         <p>PSICOMEDIC &amp; Mundo de Servicios. Soluciones integrales en salud mental, bienestar social y salud ocupacional.</p>
       </div>
       <div class="footer__col">
         <h5>Navegación</h5>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#valores">Valores</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#nosotros" data-nav>Nosotros</a>
+        <a href="#servicios" data-nav>Servicios</a>
+        <a href="#valores" data-nav>Valores</a>
+        <a href="#contacto" data-nav>Contacto</a>
       </div>
       <div class="footer__col">
         <h5>Servicios</h5>
-        <a href="#servicios">Psicología Clínica</a>
-        <a href="#servicios">Psicología Infantil</a>
-        <a href="#servicios">Medicina Ocupacional</a>
-        <a href="#servicios">Bienestar Laboral</a>
+        <a href="#servicios" data-nav>Psicología Clínica</a>
+        <a href="#servicios" data-nav>Psicología Infantil</a>
+        <a href="#servicios" data-nav>Medicina Ocupacional</a>
+        <a href="#servicios" data-nav>Bienestar Laboral</a>
       </div>
       <div class="footer__col">
         <h5>Contacto</h5>

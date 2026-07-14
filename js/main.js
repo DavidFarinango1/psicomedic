@@ -1,46 +1,122 @@
 /* =========================================================
-   PSICOMEDIC MS — Interactividad
+   PSICOMEDIC MS — Navegación por pestañas (tipo página)
    ========================================================= */
 
-// --- Menú móvil ---
 const toggle = document.getElementById('navToggle');
 const menu   = document.getElementById('menu');
+const nav    = document.getElementById('nav');
 
+// Detalles individuales de servicio
+const SERVICE_VIEWS = [
+  'serv-empresarial', 'serv-clinica', 'serv-infantil',
+  'serv-ocupacional', 'serv-laboral', 'serv-social'
+];
+
+// IDs válidos de las vistas
+const VIEWS = ['inicio', 'nosotros', 'servicios', 'valores', 'contacto', ...SERVICE_VIEWS];
+
+// --- Menú móvil (abrir/cerrar) ---
 toggle.addEventListener('click', () => {
   const open = menu.classList.toggle('open');
   toggle.classList.toggle('active', open);
   toggle.setAttribute('aria-expanded', open);
 });
 
-// Cerrar el menú al hacer clic en un enlace (móvil)
-menu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('open');
-    toggle.classList.remove('active');
-    toggle.setAttribute('aria-expanded', 'false');
+function closeMobileMenu() {
+  menu.classList.remove('open');
+  toggle.classList.remove('active');
+  toggle.setAttribute('aria-expanded', 'false');
+}
+
+// --- Mostrar una pestaña / vista ---
+function showView(id, updateHash = true) {
+  if (!VIEWS.includes(id)) id = 'inicio';
+
+  // Alterna las vistas
+  document.querySelectorAll('.view').forEach(view => {
+    view.classList.toggle('is-active', view.id === id);
+  });
+
+  // Resalta la pestaña activa en el menú
+  document.querySelectorAll('[data-nav]').forEach(link => {
+    const target = (link.getAttribute('href') || '').replace('#', '');
+    let active = target === id;
+    // El menú "Servicios" queda activo también en las páginas de detalle
+    if (target === 'servicios' && SERVICE_VIEWS.includes(id)) active = true;
+    link.classList.toggle('active', active);
+  });
+
+  // Reinicia las animaciones de entrada de la vista activa
+  const active = document.getElementById(id);
+  if (active) {
+    active.querySelectorAll('.reveal').forEach((el, i) => {
+      el.classList.remove('in');
+      // pequeño retraso escalonado
+      setTimeout(() => el.classList.add('in'), 60 + i * 70);
+    });
+  }
+
+  if (updateHash) history.replaceState(null, '', '#' + id);
+
+  // Sube al inicio de la página (debajo del menú fijo)
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Cierra el desplegable de Servicios si estaba abierto
+  const dropEl = document.querySelector('.nav__drop');
+  if (dropEl) dropEl.classList.remove('open');
+
+  closeMobileMenu();
+}
+
+// --- Menú desplegable de Servicios: abrir/cerrar al hacer clic ---
+const drop      = document.querySelector('.nav__drop');
+const dropLabel = document.querySelector('.nav__droplabel');
+
+if (dropLabel && drop) {
+  dropLabel.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    drop.classList.toggle('open');
+  });
+}
+
+// Cerrar el desplegable al hacer clic fuera de él
+document.addEventListener('click', (e) => {
+  if (drop && !drop.contains(e.target)) drop.classList.remove('open');
+});
+
+// --- Clic en cualquier enlace de navegación interna ---
+document.querySelectorAll('[data-nav]').forEach(link => {
+  // El rótulo "Servicios" solo abre el submenú, no navega
+  if (link.classList.contains('nav__droplabel')) return;
+
+  link.addEventListener('click', (e) => {
+    const id = (link.getAttribute('href') || '').replace('#', '');
+    if (!VIEWS.includes(id)) return;
+    e.preventDefault();
+    showView(id);
   });
 });
 
-// --- Sombra del nav al hacer scroll ---
-const nav = document.getElementById('nav');
+// --- Soporte para botones atrás/adelante del navegador ---
+window.addEventListener('popstate', () => {
+  const id = (location.hash || '#inicio').replace('#', '');
+  showView(id, false);
+});
+
+// --- Sombra del menú al hacer scroll ---
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
-});
-
-// --- Animación reveal al hacer scroll ---
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+}, { passive: true });
 
 // --- Año dinámico en el footer ---
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// --- Vista inicial según el enlace (#) o "inicio" por defecto ---
+(function init() {
+  const id = (location.hash || '#inicio').replace('#', '');
+  showView(VIEWS.includes(id) ? id : 'inicio', false);
+})();
 
 // --- Formulario de contacto (envía a WhatsApp) ---
 function handleSubmit(e) {
