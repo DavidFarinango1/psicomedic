@@ -34,7 +34,7 @@ firebase deploy --only hosting
 
 Reemplazar los valores de ejemplo por los reales:
 
-- WhatsApp: `593000000000`
+- WhatsApp / Teléfono: `0963752642` (internacional `593963752642`)
 - Correo: `info@psicomedic.ec`
 - Enlaces de redes sociales
 

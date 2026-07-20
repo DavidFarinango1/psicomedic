@@ -128,7 +128,7 @@ function handleSubmit(e) {
   const note     = document.getElementById('formNote');
 
   // Número de WhatsApp de la clienta (reemplazar por el real)
-  const numero = '593000000000';
+  const numero = '593963752642';
 
   const texto = encodeURIComponent(
     `Hola PSICOMEDIC MS, soy ${nombre}.\n` +

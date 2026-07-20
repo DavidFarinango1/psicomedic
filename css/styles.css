@@ -313,6 +313,20 @@ ul { list-style: none; }
 .svc-ctaBox { border-top: 1px solid var(--linea); padding-top: 1.3rem; text-align: center; }
 .svc-ctaBox p { font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--azul-osc); margin-bottom: .8rem; }
 
+/* ===== GALERÍA DE IMÁGENES (cuadros uniformes) ===== */
+.gallery {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem;
+  margin: 0 auto;
+}
+.gallery img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; cursor: pointer;
+  background: #fff; padding: 8px; border: 1px solid var(--linea);
+  border-radius: var(--radio-sm); box-shadow: var(--sombra-sm); transition: var(--trans);
+}
+.gallery img:hover { transform: translateY(-5px); box-shadow: var(--sombra); }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: .8rem; } }
+
 /* ===== VALORES ===== */
 .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
 .value {
