@@ -35,7 +35,8 @@ firebase deploy --only hosting
 Reemplazar los valores de ejemplo por los reales:
 
 - WhatsApp / Teléfono: `0963752642` (internacional `593963752642`)
-- Correo: `info@psicomedic.ec`
+- Correo: `informacion@psicomedicc.com`
+- Dominio: `psicomedicc.com` (registrado en Namecheap)
 - Enlaces de redes sociales
 
 ---
