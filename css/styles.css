@@ -362,12 +362,35 @@ ul { list-style: none; }
 .contact__socials a { font-weight: 600; color: var(--azul); font-size: .92rem; }
 .contact__socials a:hover { color: var(--celeste); }
 
+.contact__gallery {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 2.8rem;
+}
+.contact__gallery img {
+  width: 100%; height: 300px; object-fit: cover; border-radius: var(--radio);
+  box-shadow: var(--sombra-sm); border: 1px solid var(--linea); transition: var(--trans);
+}
+.contact__gallery img:hover { transform: translateY(-5px); box-shadow: var(--sombra); }
+@media (max-width: 760px) { .contact__gallery { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+
+.contact__map { margin-top: 1.6rem; }
+.contact__map iframe {
+  width: 100%; border-radius: var(--radio); box-shadow: var(--sombra-sm);
+  border: 1px solid var(--linea); display: block;
+}
+.contact__maplink {
+  display: inline-flex; align-items: center; gap: .4rem; margin-top: .8rem;
+  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .9rem; color: var(--azul);
+  transition: var(--trans);
+}
+.contact__maplink:hover { color: var(--celeste); }
+
 .contact__form {
   background: #fff; border: 1px solid var(--linea); border-radius: var(--radio);
   padding: 2.2rem; box-shadow: var(--sombra-sm);
 }
 .field { margin-bottom: 1.1rem; }
 .field label { display: block; font-size: .85rem; font-weight: 600; color: var(--azul-osc); margin-bottom: .4rem; }
+.req { color: #d92d20; font-weight: 700; }
 .field input, .field select, .field textarea {
   width: 100%; padding: .8rem 1rem; border: 1px solid var(--linea); border-radius: var(--radio-sm);
   font-family: inherit; font-size: .95rem; color: var(--texto); background: var(--celeste-soft);
@@ -393,14 +416,21 @@ ul { list-style: none; }
 .footer__col a:hover { color: var(--celeste-2); padding-left: 4px; }
 .footer__bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 1.3rem 0; font-size: .85rem; text-align: center; }
 
-/* ===== WHATSAPP FLOTANTE ===== */
-.wa-float {
+/* ===== BOTONES FLOTANTES DE REDES ===== */
+.floats {
   position: fixed; right: 22px; bottom: 22px; z-index: 200;
-  width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff;
-  display: grid; place-items: center; box-shadow: 0 10px 30px rgba(37,211,102,.45);
-  transition: var(--trans); animation: pulse 2.4s infinite;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.wa-float:hover { transform: scale(1.08); }
+.float-btn {
+  width: 54px; height: 54px; border-radius: 50%; color: #fff;
+  display: grid; place-items: center; box-shadow: 0 8px 22px rgba(0,0,0,.22);
+  transition: var(--trans);
+}
+.float-btn:hover { transform: scale(1.1); }
+.float-btn--tt { background: #010101; }
+.float-btn--fb { background: #1877F2; }
+.float-btn--ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.float-btn--wa { background: #25D366; box-shadow: 0 10px 30px rgba(37,211,102,.45); animation: pulse 2.4s infinite; }
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
   70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); }

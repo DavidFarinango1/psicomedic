@@ -122,10 +122,22 @@ document.getElementById('year').textContent = new Date().getFullYear();
 function handleSubmit(e) {
   e.preventDefault();
   const nombre   = document.getElementById('nombre').value.trim();
-  const email    = document.getElementById('email').value.trim();
+  const emailEl  = document.getElementById('email');
+  const email    = emailEl.value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
   const servicio = document.getElementById('servicio').value;
   const mensaje  = document.getElementById('mensaje').value.trim();
   const note     = document.getElementById('formNote');
+
+  // Validación: el correo es obligatorio y debe tener formato válido
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!email || !emailOk) {
+    note.style.color = '#d92d20';
+    note.textContent = 'Por favor ingresa un correo electrónico válido.';
+    emailEl.focus();
+    return false;
+  }
+  note.style.color = '';
 
   // Número de WhatsApp de la clienta (reemplazar por el real)
   const numero = '593963752642';
@@ -133,6 +145,7 @@ function handleSubmit(e) {
   const texto = encodeURIComponent(
     `Hola PSICOMEDIC MS, soy ${nombre}.\n` +
     `Correo: ${email}\n` +
+    `Teléfono: ${telefono || '(no indicado)'}\n` +
     `Servicio de interés: ${servicio}\n` +
     `Mensaje: ${mensaje || '(sin mensaje)'}`
   );
